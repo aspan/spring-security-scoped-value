@@ -1,0 +1,10 @@
+com/github/spring/security/SpringSecurityScopedValueApplication.class
+com/github/spring/security/strategy/ScopedSecurityContextHolderStrategy$SecurityContextScopedValueHolder.class
+com/github/spring/security/controller/IndexController.class
+com/github/spring/security/strategy/ScopedSecurityContextHolderStrategy.class
+com/github/spring/security/config/WebSecurityConfig.class
+com/github/spring/security/config/SecurityContextStrategyConfig.class
+com/github/spring/security/config/TomcatVirtualThreadExecutorCustomizer.class
+com/github/spring/security/config/ScopedSecurityContextConfigurer.class
+com/github/spring/security/config/TomcatVirtualThreadExecutorCustomizer$ScopedVirtualThreadExecutor.class
+com/github/spring/security/filter/ScopedSecurityContextHolderFilter.class

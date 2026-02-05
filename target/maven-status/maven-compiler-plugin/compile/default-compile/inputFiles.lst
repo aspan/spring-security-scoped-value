@@ -1,0 +1,8 @@
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/SpringSecurityScopedValueApplication.java
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/config/ScopedSecurityContextConfigurer.java
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/config/SecurityContextStrategyConfig.java
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/config/TomcatVirtualThreadExecutorCustomizer.java
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/config/WebSecurityConfig.java
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/controller/IndexController.java
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/filter/ScopedSecurityContextHolderFilter.java
+/Users/andreas/Development/github/spring-security-scoped-value/src/main/java/com/github/spring/security/strategy/ScopedSecurityContextHolderStrategy.java

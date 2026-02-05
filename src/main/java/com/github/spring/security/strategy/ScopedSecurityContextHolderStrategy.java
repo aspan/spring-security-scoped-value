@@ -6,11 +6,11 @@ import org.springframework.security.core.context.SecurityContextHolderStrategy;
 import org.springframework.security.core.context.SecurityContextImpl;
 
 public class ScopedSecurityContextHolderStrategy implements SecurityContextHolderStrategy {
-	
+
 	private static final ScopedValue<SecurityContextScopedValueHolder> SECURITY_CONTEXT = ScopedValue.newInstance();
 
 	private static class SecurityContextScopedValueHolder {
-		
+
 		private SecurityContext securityContext;
 
 		public SecurityContextScopedValueHolder() {
@@ -29,14 +29,14 @@ public class ScopedSecurityContextHolderStrategy implements SecurityContextHolde
 		}
 
 	}
-	
+
 	@Override
 	public void clearContext() {
 		if (SECURITY_CONTEXT.isBound()) {
 			// otherwise, if Scoped Security Context Filter is used,
-			// we have unbound ISE upon a call securityContextHolderStrategy.clearContext(); 
+			// we have unbound ISE upon a call securityContextHolderStrategy.clearContext();
 			// in FilterChainProxy.doFilter.
-			// This check is unnecessary if Scoped Value is engaged in Tomcat Thread Executor 
+			// This check is unnecessary if Scoped Value is engaged in Tomcat Thread Executor
 			retrieveSecurityContextScopedValueHolder().setSecurityContext(null);
 		}
 	}
@@ -55,7 +55,7 @@ public class ScopedSecurityContextHolderStrategy implements SecurityContextHolde
 	public SecurityContext createEmptyContext() {
 		return new SecurityContextImpl();
 	}
-	
+
 	private SecurityContextScopedValueHolder retrieveSecurityContextScopedValueHolder() {
 		if (SECURITY_CONTEXT.isBound()) {
 			return SECURITY_CONTEXT.get();
@@ -63,13 +63,13 @@ public class ScopedSecurityContextHolderStrategy implements SecurityContextHolde
 			throw new IllegalStateException("Security Context Scoped Value not bound");
 		}
 	}
-	
+
 	public static ScopedValue.Carrier getSecuriyContextCarrier() {
 		return ScopedValue.where(SECURITY_CONTEXT, new SecurityContextScopedValueHolder());
 	}
 
 	public static void runWhere(DeferredSecurityContext deferredContext, Runnable r) {
-		ScopedValue.runWhere(SECURITY_CONTEXT, new SecurityContextScopedValueHolder(deferredContext.get()), r);
+		ScopedValue.where(SECURITY_CONTEXT, new SecurityContextScopedValueHolder(deferredContext.get())).run(r);
 	}
 
 }
